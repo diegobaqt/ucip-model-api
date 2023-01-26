@@ -1,20 +1,6 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Model API
+Esta aplicación fue desarrollada en Python y haciendo uso del marco de trabajo web FastAPI. Esta API cuenta con todos los modelos entrenados en el desarrollo de esta investigación y se encarga de cargar solamente los necesarios para realizar la clasificación y predicción correspondiente. 
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Esta aplicación expone un servicio llamado predict. El cual se encarga de tomar la información que es enviada desde la aplicación Backend y enviarla a los diferentes modelos entrenados (1) DTC, (2) RFC, (3) LRC, (4) LSTM y (5) GRU. Es necesario recordar que para los modelos de clasificación primero se llama al modelo especializado en detectar estados críticos, y si el resultado es “inestable”, se llama al modelo especializado en detectar estados estables. En total, esta aplicación cuenta con 32 modelos entrenados para calcular el resultado de la clasificación y la predicción de los datos.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Finalmente, luego de que los resultados son calculados se Model API envía una respuesta al Backend con esta información. Por su parte, el Backend se encargará de enviar la respuesta al Frontend, que a su vez, representará la información al usuario.
